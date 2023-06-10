@@ -33,7 +33,7 @@ def get_data():
 
 def calculate_protien():
     print("For protien choose for the following list:\n")
-    print("Meat, Chicket, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheease, Beans\n")
+    print("Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
     protien_eat = input("What was your protien type:\n")
     protien_gm = input("What was your protien intake in gms:\n")
     print("Protien intake noted...\n")
