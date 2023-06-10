@@ -19,14 +19,16 @@ SHEET = GSPREAD_CLIENT.open('Meal_Planner')
 
 def get_data():
     """
-    Get data from user and Calculate the BMI and calories intake
+    Get data from user and Calculate the BMI and BMR and calories intake
     """
     name_str = input("Please enter your name:\n ")
     age_str = input("Please enter age name:\n ")
     weight_str = input("Please enter your weight in kilograms:\n")
     height_str = input("Please enter your height in meters:\n")
     bmi = round(float(weight_str) / (float(height_str) * float(height_str)), 2)
-    print(f"your BMI is: {bmi}")
+    bmr = (10 * float(weight_str)) + (6.25 * float(height_str) * 100) - (5 * int(age_str)) + 5
+    print(f"Your BMI is: {bmi}")
+    print(f"Your recommended calories intake is: {bmr}")
 
     
 
