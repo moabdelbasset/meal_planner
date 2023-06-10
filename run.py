@@ -30,7 +30,48 @@ def get_data():
     print(f"Your BMI is: {bmi}")
     print(f"Your recommended calories intake is: {bmr}")
 
-    
+
+def calculate_protien():
+    print("For protien choose for the following list:\n")
+    print("Meat, Chicket, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheease, Beans\n")
+    protien_eat = input("What was your protien type:\n")
+    protien_gm = input("What was your protien intake in gms:\n")
+    print("Protien intake noted...\n")
+    protien = SHEET.worksheet("Protien").get_all_values()
+    for row in protien:
+        if row[0].lower() == protien_eat.lower():
+            print("The calories for", protien_eat, "are", row[1])
+            break    
+
+def calculate_carbs():
+    print("For carbs choose for the following list:\n")
+    print("Rice, Pasta, Bread, Oats, Potatoes, Quinoa, Corn, Milk\n")
+    carbs_eat = input("What is your carbs type:\n")
+    carbs_gm = input("What was your carbs intake in gms:\n")
+    print("Carbs intake noted...\n")
+    carbs = SHEET.worksheet("Carbs").get_all_values()
+    for row in carbs:
+        if row[0].lower() == carbs_eat.lower():
+            print("The calories for", carbs_eat, "are", row[1])
+            break    
+
+def calculate_fats():
+    print("For fats choose for the following list:\n")
+    print("Butter, Olive oil, Coconut oil, Avocado, Almonds, Peanut butter, Cheddar cheese\n")
+    fats_eat = input("What is your fat type:\n")
+    fats_gm = input("What was your fat intake in gms:\n")
+    fats = SHEET.worksheet("Fats").get_all_values()
+    for row in fats:
+        if row[0].lower() == fats_eat.lower():
+            print("The calories for", fats_eat, "are", row[1])
+            break
+
+
+
+def calculate_breakfast():
+    print("What did you take on Breakfast?\n")
+    calculate_protien()
+
 
 
 def main():
@@ -38,7 +79,8 @@ def main():
     Run all program functions
     """
     get_data()
+    calculate_breakfast()
 
 
 print("Welcome to the Automatic Meal Planner")
-main()   
+main()
