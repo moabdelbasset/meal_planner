@@ -35,18 +35,24 @@ def calculate_protien():
     """
     Calculate the protien intake
     """
-    print("For protien choose for the following list:\n")
-    print("Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
-    protien_eat = input("What was your protien type:\n")
-    protien_gm = input("What was your protien intake in gms:\n")
-    print("Protien intake noted...\n")
-    protien = SHEET.worksheet("Protien").get_all_values()
-    for row in protien:
-        if row[0].lower() == protien_eat.lower():
-            cals_intake = float(protien_gm) * (int(row[1]) / 100)
-            print("The calories for", protien_eat, "are", cals_intake)
-            return (cals_intake)
-            break
+    while True:
+        print("For protien choose for the following list:\n")
+        print("Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
+        protien_eat = input("What was your protien type:\n")
+        protien_gm = input("What was your protien intake in gms:\n")
+        print("Protien intake noted...\n")
+        protien = SHEET.worksheet("Protien").get_all_values()
+        found = False
+        for row in protien:
+            if row[0].lower() == protien_eat.lower():
+                cals_intake = float(protien_gm) * (int(row[1]) / 100)
+                print("The calories for", protien_eat, "are", cals_intake)
+                found = True
+                return (cals_intake)
+                break
+        if not found:
+            print("You entered an element not found in the protien list. Please try again\n")
+        
 
 def calculate_carbs():
     """
