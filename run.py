@@ -70,36 +70,39 @@ def calculate_carbs():
     """
     Calculate the carbs intake
     """
-    print("For carbs choose for the following list:\n")
-    print("Rice, Pasta, Bread, Oats, Potatoes, Quinoa, Corn, Milk\n")
-    carbs_eat = input("What is your carbs type:\n")
-    carbs_gm = input("What was your carbs intake in gms:\n")
-    print("Carbs intake noted...\n")
-    carbs = SHEET.worksheet("Carbs").get_all_values()
-    for row in carbs:
-        if row[0].lower() == carbs_eat.lower():
-            #print("The calories for", carbs_eat, "are", row[1])
-            cals_intake = float(carbs_gm) * (int(row[1]) / 100)
-            print("The calories for", carbs_eat, "are", cals_intake)
-            return (cals_intake)
-            break
+    while True:
+        print("For carbs choose for the following list:\n")
+        print("Rice, Pasta, Bread, Oats, Potatoes, Quinoa, Corn, Milk\n")
+        carbs_eat = input("What is your carbs type:\n")
+        carbs_gm = input("What was your carbs intake in gms:\n")
+        print("Calculating protien calories...\n")
+        validate_data(carbs_eat, "Carbs")
+        carbs = SHEET.worksheet("Carbs").get_all_values()
+        for row in carbs:
+            if row[0].lower() == carbs_eat.lower():
+                cals_intake = float(carbs_gm) * (int(row[1]) / 100)
+                print("The calories for", carbs_eat, "are", cals_intake)
+                return (cals_intake)
+
 
 def calculate_fats():
     """
     Calculate the fat intake
     """
-    print("For fats choose for the following list:\n")
-    print("Butter, Olive oil, Coconut oil, Avocado, Almonds, Peanut butter, Cheddar cheese\n")
-    fats_eat = input("What is your fat type:\n")
-    fats_gm = input("What was your fat intake in gms:\n")
-    fats = SHEET.worksheet("Fats").get_all_values()
-    for row in fats:
-        if row[0].lower() == fats_eat.lower():
-            #print("The calories for", fats_eat, "are", row[1])
-            cals_intake = float(fats_gm) * (int(row[1]) / 100)
-            print("The calories for", fats_eat, "are", cals_intake)
-            return (cals_intake)
-            break
+    while True:
+        print("For fats choose for the following list:\n")
+        print("Butter, Olive oil, Coconut oil, Avocado, Almonds, Peanut butter, Cheddar cheese\n")
+        fats_eat = input("What is your fat type:\n")
+        fats_gm = input("What was your fat intake in gms:\n")
+        print("Calculating fats calories...\n")
+        validate_data(fats_eat, "Fats")
+        fats = SHEET.worksheet("Fats").get_all_values()
+        for row in fats:
+            if row[0].lower() == fats_eat.lower():
+                cals_intake = float(fats_gm) * (int(row[1]) / 100)
+                print("The calories for", fats_eat, "are", cals_intake)
+                return (cals_intake)
+            
 
 
 
