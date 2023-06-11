@@ -32,6 +32,9 @@ def get_data():
 
 
 def calculate_protien():
+    """
+    Calculate the protien intake
+    """
     print("For protien choose for the following list:\n")
     print("Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
     protien_eat = input("What was your protien type:\n")
@@ -40,11 +43,15 @@ def calculate_protien():
     protien = SHEET.worksheet("Protien").get_all_values()
     for row in protien:
         if row[0].lower() == protien_eat.lower():
-            print("The calories for", protien_eat, "are", row[1])
-            return (row[1])
-            break    
+            cals_intake = float(protien_gm) * (int(row[1]) / 100)
+            print("The calories for", protien_eat, "are", cals_intake)
+            return (cals_intake)
+            break
 
 def calculate_carbs():
+    """
+    Calculate the carbs intake
+    """
     print("For carbs choose for the following list:\n")
     print("Rice, Pasta, Bread, Oats, Potatoes, Quinoa, Corn, Milk\n")
     carbs_eat = input("What is your carbs type:\n")
@@ -53,11 +60,16 @@ def calculate_carbs():
     carbs = SHEET.worksheet("Carbs").get_all_values()
     for row in carbs:
         if row[0].lower() == carbs_eat.lower():
-            print("The calories for", carbs_eat, "are", row[1])
-            return(row[1])
-            break    
+            #print("The calories for", carbs_eat, "are", row[1])
+            cals_intake = float(carbs_gm) * (int(row[1]) / 100)
+            print("The calories for", carbs_eat, "are", cals_intake)
+            return (cals_intake)
+            break
 
 def calculate_fats():
+    """
+    Calculate the fat intake
+    """
     print("For fats choose for the following list:\n")
     print("Butter, Olive oil, Coconut oil, Avocado, Almonds, Peanut butter, Cheddar cheese\n")
     fats_eat = input("What is your fat type:\n")
@@ -65,13 +77,18 @@ def calculate_fats():
     fats = SHEET.worksheet("Fats").get_all_values()
     for row in fats:
         if row[0].lower() == fats_eat.lower():
-            print("The calories for", fats_eat, "are", row[1])
-            return(row[1])
+            #print("The calories for", fats_eat, "are", row[1])
+            cals_intake = float(fats_gm) * (int(row[1]) / 100)
+            print("The calories for", fats_eat, "are", cals_intake)
+            return (cals_intake)
             break
 
 
 
 def calculate_breakfast():
+    """
+    Calculate total calories for breakfast
+    """
     print("What did you take on Breakfast?\n")
     p_cal = calculate_protien()
     c_cal = calculate_carbs()
@@ -79,8 +96,32 @@ def calculate_breakfast():
     print("Calculating total calories for breakfast...\n")
     breakfast_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
     print("Breakfast calories are", breakfast_total_cals)
+    
+
+def calculate_lunch():
+    """
+    Calculate total calories for lunch
+    """
+    print("What did you take on Lunch?\n")
+    p_cal = calculate_protien()
+    c_cal = calculate_carbs()
+    f_cal = calculate_fats()
+    print("Calculating total calories for lunch...\n")
+    lunch_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
+    print("Breakfast calories are", lunch_total_cals)
 
 
+def calculate_dinner():
+    """
+    Calculate total calories for dinner
+    """
+    print("What did you take on Dinner?\n")
+    p_cal = calculate_protien()
+    c_cal = calculate_carbs()
+    f_cal = calculate_fats()
+    print("Calculating total calories for dinner...\n")
+    dinner_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
+    print("Breakfast calories are", dinner_total_cals)
 
 def main():
     """
