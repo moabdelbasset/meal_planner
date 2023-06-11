@@ -41,6 +41,7 @@ def calculate_protien():
     for row in protien:
         if row[0].lower() == protien_eat.lower():
             print("The calories for", protien_eat, "are", row[1])
+            return (row[1])
             break    
 
 def calculate_carbs():
@@ -53,6 +54,7 @@ def calculate_carbs():
     for row in carbs:
         if row[0].lower() == carbs_eat.lower():
             print("The calories for", carbs_eat, "are", row[1])
+            return(row[1])
             break    
 
 def calculate_fats():
@@ -64,13 +66,19 @@ def calculate_fats():
     for row in fats:
         if row[0].lower() == fats_eat.lower():
             print("The calories for", fats_eat, "are", row[1])
+            return(row[1])
             break
 
 
 
 def calculate_breakfast():
     print("What did you take on Breakfast?\n")
-    calculate_protien()
+    p_cal = calculate_protien()
+    c_cal = calculate_carbs()
+    f_cal = calculate_fats()
+    print("Calculating total calories for breakfast...\n")
+    breakfast_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
+    print("Breakfast calories are", breakfast_total_cals)
 
 
 
