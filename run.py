@@ -33,26 +33,38 @@ def get_data():
 
 def calculate_protien():
     """
-    Calculate the protien intake
+    Taking the protien intake from users
     """
     while True:
         print("For protien choose for the following list:\n")
         print("Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
         protien_eat = input("What was your protien type:\n")
         protien_gm = input("What was your protien intake in gms:\n")
-        print("Protien intake noted...\n")
+        print("Calculating protien calories...\n")
+        validate_data(protien_eat, "Protien")
         protien = SHEET.worksheet("Protien").get_all_values()
-        found = False
         for row in protien:
             if row[0].lower() == protien_eat.lower():
                 cals_intake = float(protien_gm) * (int(row[1]) / 100)
                 print("The calories for", protien_eat, "are", cals_intake)
-                found = True
                 return (cals_intake)
-                break
-        if not found:
-            print("You entered an element not found in the protien list. Please try again\n")
+
         
+def validate_data(data, type): 
+    """
+    Validating the intakes from users
+    """
+    list = SHEET.worksheet(type).get_all_values()            
+    found = False
+    for row in list:
+        if row[0].lower() == data.lower():
+            found = True
+            return True
+            break
+    if not found:
+        print(f"You entered an element not found in the {type} list. Please try again\n")
+        return False
+
 
 def calculate_carbs():
     """
