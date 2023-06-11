@@ -21,14 +21,49 @@ def get_data():
     """
     Get data from user and Calculate the BMI and BMR and calories intake
     """
-    name_str = input("Please enter your name:\n ")
-    age_str = input("Please enter age name:\n ")
-    weight_str = input("Please enter your weight in kilograms:\n")
-    height_str = input("Please enter your height in meters:\n")
-    bmi = round(float(weight_str) / (float(height_str) * float(height_str)), 2)
-    bmr = (10 * float(weight_str)) + (6.25 * float(height_str) * 100) - (5 * int(age_str)) + 5
+    while True:
+        name_str = input("Please enter your name:\n ")
+        age_str = input("Please enter age name:\n ")
+        weight_str = input("Please enter your weight in kilograms:\n")
+        height_str = input("Please enter your height in meters:\n")
+        print("Calculating your BMR....\n")
+
+        # Try converting input strings to appropriate numeric types
+        try:
+            weight = float(weight_str)
+            height = float(height_str)
+            age = int(age_str)
+        except ValueError:
+            print("You entered non numeric data. Please try again\n")
+            continue
+
+        # Validate user info
+        if not validate_user_info(weight, height, age):
+            continue
+        break
+
+
+def validate_user_info(weight, height, age):
+    """
+    Validating age, height and weight and make sure they are numeric and in range
+    """
+    if not isinstance(weight, (int, float)) or not isinstance(height, (int, float)) or not isinstance(age, (int)):
+        print("You entered non numeric data. Please try again\n")
+        return False
+        
+    elif weight < 0 or weight > 250 or height < 0 or height > 3:
+        print("You entered data out of range. Please try again")
+        return False
+        
+    else:
+        return True
+
+def calculate_bmr(weight, height, age):    
+    bmi = round(float(weight) / (float(height) * float(height)), 2)
+    bmr = (10 * float(weight)) + (6.25 * float(height) * 100) - (5 * int(age)) + 5
     print(f"Your BMI is: {bmi}")
     print(f"Your recommended calories intake is: {bmr}")
+    return (bmr)
 
 
 def calculate_protien():
