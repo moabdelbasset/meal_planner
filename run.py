@@ -179,13 +179,39 @@ def calculate_dinner():
     dinner_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
     print("Breakfast calories are", dinner_total_cals)
 
+def menu_function():
+    """
+    Function will print a menu for the user to either start the program
+    Or read the instructions first
+    """
+    while True:
+        print("Please select an option:")
+        print("1. Instructions")
+        print("2. Run Code")
+        choice = int(input("Enter your choice (1 or 2): "))
+
+        if choice == 1:
+            print("Automatic Meal Planner is a program that will help you to calculate your daily caloric intake.\n"
+                "Once you press 2 you will be asked to enter some information such as age, weight and height.\n"
+                "Based on your entries it will calculate your BMR and start calculating your caloric intake throughout the day.\n")
+
+        elif choice == 2:
+            get_data()
+            
+        else:
+            print("Invalid choice. Please enter either 1 or 2.")
+
+
+
 def main():
     """
     Run all program functions
     """
-    get_data()
-    calculate_breakfast()
+    print("Welcome to the Automatic Meal Planner\n")
+    menu_function()
+    #get_data()
+    #calculate_breakfast()
 
 
-print("Welcome to the Automatic Meal Planner")
+
 main()
