@@ -3,6 +3,7 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 import gspread
 from google.oauth2.service_account import Credentials 
+from colorama import Fore, Back, Style
 
 
 SCOPE = [
@@ -22,42 +23,42 @@ def get_data():
     Get data from user and Calculate the BMI and BMR and calories intake
     """
     while True:
-        name_str = input("Please enter your name:\n ")
+        name_str = input(Fore.WHITE + "Please enter your name:\n ")
 
         while True:
             try:
-                age_str = input("Please enter age name:\n ")
+                age_str = input(Fore.WHITE + "Please enter age name:\n ")
                 age = int(age_str)
                 if validate_age(age):
                     break
                 else:
-                    print("Invalid age. Please try again.")
+                    print(Fore.RED + "Invalid age. Please try again.")
             except ValueError:
-                print("You entered non numeric data for age. Please try again\n")
+                print(Fore.RED + "You entered non numeric data for age. Please try again\n")
 
         while True:
             try:
-                weight_str = input("Please enter your weight in kilograms:\n")
+                weight_str = input(Fore.WHITE + "Please enter your weight in kilograms:\n")
                 weight = float(weight_str)
                 if validate_weight(weight):
                     break
                 else:
-                    print("Invalid weight. Please try again.")
+                    print(Fore.RED + "Invalid weight. Please try again.")
             except ValueError:
-                print("You entered non numeric data for weight. Please try again\n")
+                print(Fore.RED + "You entered non numeric data for weight. Please try again\n")
 
         while True:
             try:
-                height_str = input("Please enter your height in meters:\n")
+                height_str = input(Fore.WHITE + "Please enter your height in meters:\n")
                 height = float(height_str)
                 if validate_height(height):
                     break
                 else:
-                    print("Invalid height. Please try again.")
+                    print(Fore.RED + "Invalid height. Please try again.")
             except ValueError:
-                print("You entered non numeric data for height. Please try again\n")
+                print(Fore.RED + "You entered non numeric data for height. Please try again\n")
 
-        print("Calculating your BMR....\n")
+        print(Fore.WHITE + "Calculating your BMR....\n")
         #break
         bmr = calculate_bmr(weight, height, age)
         return bmr
@@ -68,7 +69,7 @@ def validate_weight(weight):
     Function to validate weight value added by user
     """
     if weight < 0 or weight > 250:
-        print("You entered data out of range. Please try again with values from 1 kg to 249 kg")
+        print(Fore.RED + "You entered data out of range. Please try again with values from 1 kg to 249 kg")
         return False
     return True
 
@@ -78,7 +79,7 @@ def validate_height(height):
     Function to validate height value added by user
     """
     if height < 0 or height > 3:
-        print("You entered data out of range. Please try again with values from 1 meters to 3 meters")
+        print(Fore.RED + "You entered data out of range. Please try again with values from 1 meters to 3 meters")
         return False
     return True
 
@@ -96,8 +97,8 @@ def validate_age(age):
 def calculate_bmr(weight, height, age):    
     bmi = round(float(weight) / (float(height) * float(height)), 2)
     bmr = (10 * float(weight)) + (6.25 * float(height) * 100) - (5 * int(age)) + 5
-    print(f"Your BMI is: {bmi}")
-    print(f"Your recommended calories intake is: {bmr}")
+    print(Fore.WHITE + f"Your BMI is: {bmi}")
+    print(Fore.WHITE + f"Your recommended calories intake is: {bmr}")
     return (bmr)
 
 
@@ -106,11 +107,11 @@ def calculate_protien():
     Taking the protien intake from users
     """
     while True:
-        print("For protien choose for the following list:\n")
-        print("Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
-        protien_eat = input("What was your protien type:\n")
-        protien_gm = input("What was your protien intake in gms:\n")
-        print("Calculating protien calories...\n")
+        print(Fore.WHITE + "For protien choose for the following list:\n")
+        print(Fore.WHITE + "Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon, Shrimp, Cottage Cheese, Beans\n")
+        protien_eat = input(Fore.WHITE + "What was your protien type:\n")
+        protien_gm = input(Fore.WHITE + "What was your protien intake in gms:\n")
+        print(Fore.WHITE + "Calculating protien calories...\n")
         validate_data(protien_eat, "Protien")
         protien = SHEET.worksheet("Protien").get_all_values()
         for row in protien:
@@ -141,11 +142,11 @@ def calculate_carbs():
     Calculate the carbs intake
     """
     while True:
-        print("For carbs choose for the following list:\n")
-        print("Rice, Pasta, Bread, Oats, Potatoes, Quinoa, Corn, Milk\n")
-        carbs_eat = input("What is your carbs type:\n")
-        carbs_gm = input("What was your carbs intake in gms:\n")
-        print("Calculating protien calories...\n")
+        print(Fore.WHITE + "For carbs choose for the following list:\n")
+        print(Fore.WHITE + "Rice, Pasta, Bread, Oats, Potatoes, Quinoa, Corn, Milk\n")
+        carbs_eat = input(Fore.WHITE + "What is your carbs type:\n")
+        carbs_gm = input(Fore.WHITE + "What was your carbs intake in gms:\n")
+        print(Fore.WHITE + "Calculating protien calories...\n")
         validate_data(carbs_eat, "Carbs")
         carbs = SHEET.worksheet("Carbs").get_all_values()
         for row in carbs:
@@ -160,11 +161,11 @@ def calculate_fats():
     Calculate the fat intake
     """
     while True:
-        print("For fats choose for the following list:\n")
-        print("Butter, Olive oil, Coconut oil, Avocado, Almonds, Peanut butter, Cheddar cheese\n")
-        fats_eat = input("What is your fat type:\n")
-        fats_gm = input("What was your fat intake in gms:\n")
-        print("Calculating fats calories...\n")
+        print(Fore.WHITE + "For fats choose for the following list:\n")
+        print(Fore.WHITE + "Butter, Olive oil, Coconut oil, Avocado, Almonds, Peanut butter, Cheddar cheese\n")
+        fats_eat = input(Fore.WHITE + "What is your fat type:\n")
+        fats_gm = input(Fore.WHITE + "What was your fat intake in gms:\n")
+        print(Fore.WHITE + "Calculating fats calories...\n")
         validate_data(fats_eat, "Fats")
         fats = SHEET.worksheet("Fats").get_all_values()
         for row in fats:
@@ -178,13 +179,13 @@ def calculate_breakfast():
     """
     Calculate total calories for breakfast
     """
-    print("What did you take on Breakfast?\n")
+    print(Fore.WHITE + "What did you take on Breakfast?\n")
     p_cal = calculate_protien()
     c_cal = calculate_carbs()
     f_cal = calculate_fats()
-    print("Calculating total calories for breakfast...\n")
+    print(Fore.WHITE + "Calculating total calories for breakfast...\n")
     breakfast_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
-    print("Breakfast calories are", breakfast_total_cals)
+    print(Fore.WHITE + "Breakfast calories are", breakfast_total_cals)
     return breakfast_total_cals
 
 
@@ -192,13 +193,13 @@ def calculate_lunch():
     """
     Calculate total calories for lunch
     """
-    print("What did you take on Lunch?\n")
+    print(Fore.WHITE + "What did you take on Lunch?\n")
     p_cal = calculate_protien()
     c_cal = calculate_carbs()
     f_cal = calculate_fats()
-    print("Calculating total calories for lunch...\n")
+    print(Fore.WHITE + "Calculating total calories for lunch...\n")
     lunch_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
-    print("lunch calories are", lunch_total_cals)
+    print(Fore.WHITE + "lunch calories are", lunch_total_cals)
     return lunch_total_cals
 
 
@@ -206,13 +207,13 @@ def calculate_dinner():
     """
     Calculate total calories for dinner
     """
-    print("What did you take on Dinner?\n")
+    print(Fore.WHITE + "What did you take on Dinner?\n")
     p_cal = calculate_protien()
     c_cal = calculate_carbs()
     f_cal = calculate_fats()
-    print("Calculating total calories for dinner...\n")
+    print(Fore.WHITE + "Calculating total calories for dinner...\n")
     dinner_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
-    print("dinner calories are", dinner_total_cals)
+    print(Fore.WHITE + "dinner calories are", dinner_total_cals)
     return dinner_total_cals
 
 
@@ -258,7 +259,7 @@ def main():
     """
     Run all program functions
     """
-    print("Welcome to the Automatic Meal Planner\n")
+    print(Style.BRIGHT + "Welcome to the Automatic Meal Planner\n")
     menu_function()
 
 
