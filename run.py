@@ -59,7 +59,8 @@ def get_data():
         
         print("Calculating your BMR....\n")
         #break
-        calculate_bmr(weight, height, age)
+        bmr = calculate_bmr(weight, height, age)
+        return bmr
 
    
 def validate_weight(weight):
@@ -266,8 +267,8 @@ def menu_function():
                 "Based on your entries it will calculate your BMR and start calculating your caloric intake throughout the day.\n")
 
         elif choice == 2:
-            get_data()
-            
+            bmr = get_data()
+            calculate_breakfast()
         else:
             print("Invalid choice. Please enter either 1 or 2.")
 
