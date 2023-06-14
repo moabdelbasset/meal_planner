@@ -64,18 +64,27 @@ def get_data():
 
    
 def validate_weight(weight):
+    """
+    Function to validate weight value added by user
+    """
     if weight < 0 or weight > 250:
         print("You entered data out of range. Please try again with values from 1 kg to 249 kg")
         return False
     return True
 
 def validate_height(height):
+    """
+    Function to validate height value added by user
+    """
     if height < 0 or height > 3:
         print("You entered data out of range. Please try again with values from 1 meters to 3 meters")
         return False
     return True
 
 def validate_age(age):
+    """
+    Function to validate age value added by user
+    """
     if age < 0 or age > 100:
         print("Invalid age number it should be from 1 to 100")
         return False
