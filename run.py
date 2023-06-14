@@ -198,7 +198,7 @@ def calculate_lunch():
     f_cal = calculate_fats()
     print("Calculating total calories for lunch...\n")
     lunch_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
-    print("Breakfast calories are", lunch_total_cals)
+    print("lunch calories are", lunch_total_cals)
     return lunch_total_cals
 
 
@@ -212,7 +212,7 @@ def calculate_dinner():
     f_cal = calculate_fats()
     print("Calculating total calories for dinner...\n")
     dinner_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
-    print("Breakfast calories are", dinner_total_cals)
+    print("dinner calories are", dinner_total_cals)
     return dinner_total_cals
 
 
