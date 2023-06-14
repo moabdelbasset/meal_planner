@@ -185,6 +185,7 @@ def calculate_breakfast():
     print("Calculating total calories for breakfast...\n")
     breakfast_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
     print("Breakfast calories are", breakfast_total_cals)
+    return breakfast_total_cals
     
 
 def calculate_lunch():
@@ -198,6 +199,7 @@ def calculate_lunch():
     print("Calculating total calories for lunch...\n")
     lunch_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
     print("Breakfast calories are", lunch_total_cals)
+    return lunch_total_cals
 
 
 def calculate_dinner():
@@ -211,6 +213,8 @@ def calculate_dinner():
     print("Calculating total calories for dinner...\n")
     dinner_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
     print("Breakfast calories are", dinner_total_cals)
+    return dinner_total_cals
+
 
 def menu_function():
     """
@@ -230,10 +234,23 @@ def menu_function():
 
         elif choice == 2:
             bmr = get_data()
-            calculate_breakfast()
+            breakfast_cal = calculate_breakfast()
+            lunch_cal = calculate_lunch()
+            dinner_cal = calculate_dinner()
+            calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr)
         else:
             print("Invalid choice. Please enter either 1 or 2.")
 
+def calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr):
+    """
+    Calculate the caloric defincy
+    """
+    total_cal = breakfast_cal + lunch_cal + dinner_cal
+    deficency = total_cal - bmr
+    if deficency < 0:
+        print(f"Good job you are on the right track having {deficency} deficency")
+    else:
+        print(f"You have a surplus of {deficency} calories today")
 
 
 def main():
