@@ -56,13 +56,13 @@ def get_data():
                     print("Invalid height. Please try again.")
             except ValueError:
                 print("You entered non numeric data for height. Please try again\n")
-        
+
         print("Calculating your BMR....\n")
         #break
         bmr = calculate_bmr(weight, height, age)
         return bmr
 
-   
+
 def validate_weight(weight):
     """
     Function to validate weight value added by user
@@ -72,6 +72,7 @@ def validate_weight(weight):
         return False
     return True
 
+
 def validate_height(height):
     """
     Function to validate height value added by user
@@ -80,6 +81,7 @@ def validate_height(height):
         print("You entered data out of range. Please try again with values from 1 meters to 3 meters")
         return False
     return True
+
 
 def validate_age(age):
     """
@@ -117,7 +119,7 @@ def calculate_protien():
                 print("The calories for", protien_eat, "are", cals_intake)
                 return (cals_intake)
 
-        
+
 def validate_data(data, type): 
     """
     Validating the intakes from users
@@ -170,8 +172,6 @@ def calculate_fats():
                 cals_intake = float(fats_gm) * (int(row[1]) / 100)
                 print("The calories for", fats_eat, "are", cals_intake)
                 return (cals_intake)
-            
-
 
 
 def calculate_breakfast():
@@ -186,7 +186,7 @@ def calculate_breakfast():
     breakfast_total_cals = int(p_cal) + int(c_cal) + int(f_cal)
     print("Breakfast calories are", breakfast_total_cals)
     return breakfast_total_cals
-    
+
 
 def calculate_lunch():
     """
@@ -241,6 +241,7 @@ def menu_function():
         else:
             print("Invalid choice. Please enter either 1 or 2.")
 
+
 def calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr):
     """
     Calculate the caloric defincy
@@ -259,9 +260,6 @@ def main():
     """
     print("Welcome to the Automatic Meal Planner\n")
     menu_function()
-    #get_data()
-    #calculate_breakfast()
-
 
 
 main()
