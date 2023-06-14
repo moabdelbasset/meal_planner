@@ -23,40 +23,110 @@ def get_data():
     """
     while True:
         name_str = input("Please enter your name:\n ")
-        age_str = input("Please enter age name:\n ")
-        weight_str = input("Please enter your weight in kilograms:\n")
-        height_str = input("Please enter your height in meters:\n")
+
+        while True:
+            try:
+                age_str = input("Please enter age name:\n ")
+                age = int(age_str)
+                if validate_age(age):
+                    break
+                else:
+                    print("Invalid age. Please try again.")
+            except ValueError:
+                print("You entered non numeric data for age. Please try again\n")
+
+        while True:
+            try:
+                weight_str = input("Please enter your weight in kilograms:\n")
+                weight = float(weight_str)
+                if validate_weight(weight):
+                    break
+                else:
+                    print("Invalid weight. Please try again.")
+            except ValueError:
+                print("You entered non numeric data for weight. Please try again\n")
+
+        while True:
+            try:
+                height_str = input("Please enter your height in meters:\n")
+                height = float(height_str)
+                if validate_height(height):
+                    break
+                else:
+                    print("Invalid height. Please try again.")
+            except ValueError:
+                print("You entered non numeric data for height. Please try again\n")
+        
         print("Calculating your BMR....\n")
+        #break
+        calculate_bmr(weight, height, age)
 
-        # Try converting input strings to appropriate numeric types
-        try:
-            weight = float(weight_str)
-            height = float(height_str)
-            age = int(age_str)
-        except ValueError:
-            print("You entered non numeric data. Please try again\n")
-            continue
-
-        # Validate user info
-        if not validate_user_info(weight, height, age):
-            continue
-        break
-
-
-def validate_user_info(weight, height, age):
-    """
-    Validating age, height and weight and make sure they are numeric and in range
-    """
-    if not isinstance(weight, (int, float)) or not isinstance(height, (int, float)) or not isinstance(age, (int)):
-        print("You entered non numeric data. Please try again\n")
+   
+def validate_weight(weight):
+    if weight < 0 or weight > 250:
+        print("You entered data out of range. Please try again with values from 1 kg to 249 kg")
         return False
-        
-    elif weight < 0 or weight > 250 or height < 0 or height > 3:
-        print("You entered data out of range. Please try again")
+    return True
+
+def validate_height(height):
+    if height < 0 or height > 3:
+        print("You entered data out of range. Please try again with values from 1 meters to 3 meters")
         return False
+    return True
+
+def validate_age(age):
+    if age < 0 or age > 100:
+        print("Invalid age number it should be from 1 to 100")
+        return False
+    return True
+
+
+
+
+# def get_data():
+#     """
+#     Get data from user and Calculate the BMI and BMR and calories intake
+#     """
+#     while True:
+#         name_str = 'abc'
+#         age_str = 1
+#         weight_str = 1
+#         height_str = 1
+#         name_str = input("Please enter your name:\n ")
+#         age_str = input("Please enter age name:\n ")
+#         weight_str = input("Please enter your weight in kilograms:\n")
+#         height_str = input("Please enter your height in meters:\n")
+#         print("Calculating your BMR....\n")
+
+#         # Try converting input strings to appropriate numeric types
+#         try:
+#             weight = float(weight_str)
+#             height = float(height_str)
+#             age = int(age_str)
+#         except ValueError:
+#             print("You entered non numeric data. Please try again\n")
+#             continue
+
+#         # Validate user info
+#         if not validate_user_info(weight, height, age):
+#             continue
+#         break
+
+
+# def validate_user_info(weight, height, age):
+#     """
+#     Validating age, height and weight and make sure they are numeric and in range
+#     """
+#     if not isinstance(weight, (int, float)) or not isinstance(height, (int, float)) or not isinstance(age, (int)):
+#         print("You entered non numeric data. Please try again\n")
+#         return False
         
-    else:
-        return True
+#     elif weight < 0 or weight > 250 or height < 0 or height > 3:
+#         print("You entered data out of range. Please try again")
+#         return False
+        
+#     else:
+#         return True
 
 def calculate_bmr(weight, height, age):    
     bmi = round(float(weight) / (float(height) * float(height)), 2)
