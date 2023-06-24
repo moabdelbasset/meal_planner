@@ -18,3 +18,16 @@ The magic of Meal Planner doesn't stop there. It goes a step further and determi
 
 ## Flow Chart:
 ![Flow Chart](doc_images/flowchart.png)    
+
+
+# Features:
+* Main menu:
+The application has a main menu
+* Instruction:
+Once you run the application you have the option to start the meal planner or read the instructions first
+* Input validations and error detection:
+If a user enter any data the app will check if this data is valid and if its not valid it will prompt the user to enter a valid data. Data validation happens on the weight, age, height, Food list and quantity.
+* Colorama:
+Since its a terminal app, I used colorama to add a bit of colour where I felt was needed within the terminal to make certain parts stand out to the user. For example adding not valid data a prompt appear with color red.
+* Fetching information from Google sheet:
+The list of foods and it's caloric data is maintained inside a Google spreadsheet.
