@@ -27,7 +27,7 @@ def get_data():
 
         while True:
             try:
-                age_str = input(Fore.WHITE + "Please enter age name:\n ")
+                age_str = input(Fore.WHITE + "Please enter your age:\n ")
                 age = int(age_str)
                 if validate_age(age):
                     break
@@ -40,7 +40,7 @@ def get_data():
         while True:
             try:
                 weight_str = input(Fore.WHITE + "Please enter your weight"
-                                   "in kilograms:\n")
+                                   " in kilograms:\n")
                 weight = float(weight_str)
                 if validate_weight(weight):
                     break
@@ -53,7 +53,7 @@ def get_data():
         while True:
             try:
                 height_str = input(Fore.WHITE + "Please enter your height"
-                                   "in meters:\n")
+                                   " in meters:\n")
                 height = float(height_str)
                 if validate_height(height):
                     break
@@ -117,16 +117,26 @@ def calculate_protien():
         print(Fore.WHITE + "For protien choose for the following list:\n")
         print(Fore.WHITE + "Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon,"
               "Shrimp, Cottage Cheese, Beans\n")
+        print(Fore.WHITE + "Enter Nothing if you didn't eat protien during breakfast\n")
         protien_eat = input(Fore.WHITE + "What was your protien type:\n")
-        protien_gm = input(Fore.WHITE + "What was your protien intake in gm\n")
-        print(Fore.WHITE + "Calculating protien calories...\n")
-        validate_data(protien_eat, "Protien")
-        protien = SHEET.worksheet("Protien").get_all_values()
-        for row in protien:
-            if row[0].lower() == protien_eat.lower():
-                cals_intake = float(protien_gm) * (int(row[1]) / 100)
-                print("The calories for", protien_eat, "are", cals_intake)
-                return (cals_intake)
+        #protien_gm = input(Fore.WHITE + "What was your protien intake in gm\n")
+        if protien_eat.lower() == 'nothing':
+            print(Fore.WHITE + "Calculating protien calories...\n")
+            print(Fore.WHITE + "Zero protiens for breakfast\n")
+            protien_gm = 0
+            cals_intake = 0
+            return (cals_intake)
+        else:
+            #protien_eat = input(Fore.WHITE + "What was your protien type:\n")
+            protien_gm = input(Fore.WHITE + "What was your protien intake in gm\n")
+            print(Fore.WHITE + "Calculating protien calories...\n")
+            validate_data(protien_eat, "Protien")
+            protien = SHEET.worksheet("Protien").get_all_values()
+            for row in protien:
+                if row[0].lower() == protien_eat.lower():
+                    cals_intake = float(protien_gm) * (int(row[1]) / 100)
+                    print("The calories for", protien_eat, "are", cals_intake)
+                    return (cals_intake)
 
 
 def validate_data(data, type):
