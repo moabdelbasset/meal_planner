@@ -117,17 +117,15 @@ def calculate_protien():
         print(Fore.WHITE + "For protien choose for the following list:\n")
         print(Fore.WHITE + "Meat, Chicken, Eggs, Fish, Turkey, Eggs, Salmon,"
               "Shrimp, Cottage Cheese, Beans\n")
-        print(Fore.WHITE + "Enter Nothing if you didn't eat protien during breakfast\n")
+        print(Fore.WHITE + "Enter Nothing if you didn't eat protien\n")
         protien_eat = input(Fore.WHITE + "What was your protien type:\n")
-        #protien_gm = input(Fore.WHITE + "What was your protien intake in gm\n")
         if protien_eat.lower() == 'nothing':
             print(Fore.WHITE + "Calculating protien calories...\n")
-            print(Fore.WHITE + "Zero protiens for breakfast\n")
+            print(Fore.WHITE + "Zero protiens in this meal\n")
             protien_gm = 0
             cals_intake = 0
             return (cals_intake)
         else:
-            #protien_eat = input(Fore.WHITE + "What was your protien type:\n")
             protien_gm = input(Fore.WHITE + "What was your protien intake in gm\n")
             print(Fore.WHITE + "Calculating protien calories...\n")
             validate_data(protien_eat, "Protien")
@@ -151,7 +149,7 @@ def validate_data(data, type):
             return True
             break
     if not found:
-        print(f"You entered an element not found in the {type} list."
+        print(Fore.RED + f"You entered an element not found in the {type} list."
               "Please try again\n")
         return False
 
@@ -164,16 +162,25 @@ def calculate_carbs():
         print(Fore.WHITE + "For carbs choose for the following list:\n")
         print(Fore.WHITE + "Rice, Pasta, Bread, Oats, Potatoes, Quinoa,"
               "Corn, Milk\n")
+        print(Fore.WHITE + "Enter Nothing if you didn't eat carbs\n")
         carbs_eat = input(Fore.WHITE + "What is your carbs type:\n")
-        carbs_gm = input(Fore.WHITE + "What was your carbs intake in gms:\n")
-        print(Fore.WHITE + "Calculating protien calories...\n")
-        validate_data(carbs_eat, "Carbs")
-        carbs = SHEET.worksheet("Carbs").get_all_values()
-        for row in carbs:
-            if row[0].lower() == carbs_eat.lower():
-                cals_intake = float(carbs_gm) * (int(row[1]) / 100)
-                print("The calories for", carbs_eat, "are", cals_intake)
-                return (cals_intake)
+        if carbs_eat.lower() == "nothing":
+            print(Fore.WHITE + "Calculating carbs calories...\n")
+            print(Fore.WHITE + "Zero carbs in this meal\n")
+            carbs_gm = 0
+            cals_intake = 0
+            return cals_intake
+        else:
+            carbs_gm = input(Fore.WHITE + "What was your carbs intake in gms:\n")
+            print(Fore.WHITE + "Calculating protein calories...\n")
+            validate_data(carbs_eat, "Carbs")
+            carbs = SHEET.worksheet("Carbs").get_all_values()
+            for row in carbs:
+                if row[0].lower() == carbs_eat.lower():
+                    cals_intake = float(carbs_gm) * (int(row[1]) / 100)
+                    print("The calories for", carbs_eat, "are", cals_intake)
+                    return cals_intake
+
 
 
 def calculate_fats():
