@@ -17,3 +17,4 @@ The magic of Meal Planner doesn't stop there. It goes a step further and determi
 - As a user, I want to see a clear visualization of my caloric intake compared to my BMR so I can easily understand if I'm in a caloric surplus or deficit.
 
 ## Flow Chart:
+![Flow Chart](doc_images/flowchart.png)    
