@@ -172,7 +172,7 @@ def calculate_carbs():
             return cals_intake
         else:
             carbs_gm = input(Fore.WHITE + "What was your carbs intake in gms:\n")
-            print(Fore.WHITE + "Calculating protein calories...\n")
+            print(Fore.WHITE + "Calculating carbs calories...\n")
             validate_data(carbs_eat, "Carbs")
             carbs = SHEET.worksheet("Carbs").get_all_values()
             for row in carbs:
@@ -180,7 +180,6 @@ def calculate_carbs():
                     cals_intake = float(carbs_gm) * (int(row[1]) / 100)
                     print("The calories for", carbs_eat, "are", cals_intake)
                     return cals_intake
-
 
 
 def calculate_fats():
@@ -191,16 +190,24 @@ def calculate_fats():
         print(Fore.WHITE + "For fats choose for the following list:\n")
         print(Fore.WHITE + "Butter, Olive oil, Coconut oil, Avocado, Almonds,"
               "Peanut butter, Cheddar cheese\n")
+        print(Fore.WHITE + "Enter Nothing if you didn't eat carbs\n")
         fats_eat = input(Fore.WHITE + "What is your fat type:\n")
-        fats_gm = input(Fore.WHITE + "What was your fat intake in gms:\n")
-        print(Fore.WHITE + "Calculating fats calories...\n")
-        validate_data(fats_eat, "Fats")
-        fats = SHEET.worksheet("Fats").get_all_values()
-        for row in fats:
-            if row[0].lower() == fats_eat.lower():
-                cals_intake = float(fats_gm) * (int(row[1]) / 100)
-                print("The calories for", fats_eat, "are", cals_intake)
-                return (cals_intake)
+        if fats_eat.lower() == "nothing":
+            print(Fore.WHITE + "Calculating fats calories...\n")
+            print(Fore.WHITE + "Zero fats for this meal\n")
+            fats_gm = 0
+            cals_intake = 0
+            return (cals_intake)
+        else:
+            fats_gm = input(Fore.WHITE + "What was your fat intake in gms:\n")
+            print(Fore.WHITE + "Calculating fats calories...\n")
+            validate_data(fats_eat, "Fats")
+            fats = SHEET.worksheet("Fats").get_all_values()
+            for row in fats:
+                if row[0].lower() == fats_eat.lower():
+                    cals_intake = float(fats_gm) * (int(row[1]) / 100)
+                    print("The calories for", fats_eat, "are", cals_intake)
+                    return (cals_intake)
 
 
 def calculate_breakfast():
