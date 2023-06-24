@@ -278,4 +278,5 @@ def main():
     menu_function()
 
 
-main()
+if __name__ == '__main__':
+    main()
