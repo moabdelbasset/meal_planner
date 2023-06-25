@@ -50,6 +50,10 @@ pyfiglet takes ASCII text and renders it in ASCII art fonts
 
 # Testing:
 
+## CI Python Linter validation
+![Python validation](doc_images/validation_python.png)
+
+## Testing Scenarios
 | Test Case | Description  | Steps    | Excpected Results | Actual Results | Pass/Fail |
 |-----------|--------------|----------|-------------------|----------------|-----------|
 | TC001     | Getting instructions from menu   | Run the program then choose option 1  | Instruction will appear and return back to main program | Instruction appeared and returned back to main program | Pass |
@@ -121,3 +125,7 @@ For Heroku deployment, follow these steps to connect your GitHub repository to t
 
 The frontend terminal should now be connected and deployed to Heroku.
 
+# Credits
+* [pyfiglet](https://www.geeksforgeeks.org/python-ascii-art-using-pyfiglet-module/)
+* [colorama](https://pypi.org/project/colorama/)
+* [Code Institute Walkthrough Project 3](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+PE_PAGPPF+2021_Q2/courseware/b3378fc1159e43e3b70916fdefdfae51/605f34e006594dc4ae19f5e60ec75e2e/)
