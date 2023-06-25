@@ -47,3 +47,34 @@ pyfiglet takes ASCII text and renders it in ASCII art fonts
 * [Github](https://github.com/): Github was used to store the project's code after being pushed from Git.
 * [Gitpod](https://gitpod.io/): Gitpod terminal was used to commit my code using Git and push it to Github.
 * [Techsini](http://techsini.com/multi-mockup/index.php): Techsini was used to generate mockups for the project.
+
+# Testing:
+
+| Test Case | Description  | Steps    | Excpected Results | Actual Results | Pass/Fail |
+|-----------|--------------|----------|-------------------|----------------|-----------|
+| TC001     | Getting instructions from menu   | Run the program then choose option 1  | Instruction will appear and return back to main program | Instruction appeared and returned back to main program | Pass |
+| TC002     | Running the app from menu | Run the program then choose option 2 | Application will start | Application started | Pass |
+| TC003     | Validating age from user | Run the app then enter your name and age with non-numeric characters  | Error message will appear indicating that it's not a numeric value | Error message appeared | Pass |
+| TC004     | Validating weight from user | Run the app then enter your weight with non-numeric characters  | Error message will appear indicating that it's not a numeric value | Error message appeared | Pass |
+| TC005     | Validating height from user | Once the app prompts you to enter the height with non-numeric characters  |  Error message will appear indicating that it's not a numeric value | Error message appeared | Pass |
+| TC006     | If non numeric data is entered the app will continue prompting to enter the correct value | When the app prompts you to enter your age enter a non numeric character | The app will prompt you to enter the needed value | App will continue prompting you until you enter the needed value | Pass | 
+| TC007     | Validating protien type in breakfast | When the app asks you to enter the protien type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC008     | Validating carbs type in breakfast | When the app asks you to enter the carbs type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC009     | Validating fats type in breakfast | When the app asks you to enter the fats type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC010     | Validating protien type in breakfast | When the app asks you to enter the protien type you had on breakfast. Enter "Eggs" | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC011     | Validating carbs type in breakfast | When the app asks you to enter the carbs type you had on breakfast. Enter a "Bread"  | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC012     | Validating fats type in breakfast | When the app asks you to enter the fats type you had on breakfast. Enter a "Olive Oil"  | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC013     | Validating protien type in lunch | When the app asks you to enter the protien type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC014     | Validating carbs type in lunch | When the app asks you to enter the carbs type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC015     | Validating fats type in lunch | When the app asks you to enter the fats type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC016     | Validating protien type in lunch | When the app asks you to enter the protien type you had on breakfast. Enter "Eggs" | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC017     | Validating carbs type in lunch | When the app asks you to enter the carbs type you had on breakfast. Enter a "Bread"  | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC018     | Validating fats type in lunch | When the app asks you to enter the fats type you had on breakfast. Enter a "Olive Oil"  | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC019     | Validating protien type in dinner | When the app asks you to enter the protien type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC020     | Validating carbs type in dinner | When the app asks you to enter the carbs type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC021     | Validating fats type in dinner | When the app asks you to enter the fats type you had on breakfast. Enter a random characters | An error appear mentioning the entered value is not on the list | Error message appeared | Pass | 
+| TC022     | Validating protien type in dinner | When the app asks you to enter the protien type you had on breakfast. Enter "Eggs" | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC023     | Validating carbs type in dinner | When the app asks you to enter the carbs type you had on breakfast. Enter a "Bread"  | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC024     | Validating fats type in dinner | When the app asks you to enter the fats type you had on breakfast. Enter a "Olive Oil"  | No error will appear and it will continue calculating the calories | No errors and caloris are calculated | Pass | 
+| TC025     | Validating if the quantity entered is a numeric value | When the app asks you about the quantity. Enter a non-numeric value | Error will appear mentioning that you need to enter a numeric value | Error message appeared | Pass | 
+
