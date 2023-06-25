@@ -4,6 +4,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Back, Style
+import pyfiglet
 
 
 SCOPE = [
@@ -299,6 +300,7 @@ def main():
     """
     Run all program functions
     """
+    print(pyfiglet.figlet_format("Meal Planner", font="slant"))
     print(Style.BRIGHT + "Welcome to the Automatic Meal Planner\n")
     menu_function()
 

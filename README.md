@@ -31,3 +31,11 @@ If a user enter any data the app will check if this data is valid and if its not
 Since its a terminal app, I used colorama to add a bit of colour where I felt was needed within the terminal to make certain parts stand out to the user. For example adding not valid data a prompt appear with color red.
 * Fetching information from Google sheet:
 The list of foods and it's caloric data is maintained inside a Google spreadsheet.
+
+## Features Left to Implement
+* Create a user profile and store it in a database
+* Use database for food and caloric information
+
+# Technologies:
+* Python
+* 
