@@ -101,7 +101,7 @@ Deployment steps are as follows, after account setup:
 
 - Select *New* in the top-right corner of your Heroku Dashboard, and select *Create new app* from the dropdown menu.
 - Your app name must be unique, and then choose a region closest to you (EU or USA), and finally, select *Create App*.
-- From the new app *Settings*, click *Reveal Config Vars*, and set the value of KEY to `PORT`, and the value to `8000` then select *add*.
+- From the new app *Settings*, click *Reveal Config Vars*, and set the value of KEY to `CREDS`, and the value to of your credentials provided from Google cloud, then select *add*.
 - Further down, to support dependencies, select *Add Buildpack*.
 - The order of the buildpacks is important, select `Python` first, then `Node.js` second. (if they are not in this order, you can drag them to rearrange them)
 
