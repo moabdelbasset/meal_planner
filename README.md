@@ -1,5 +1,7 @@
 # Meal Planner - Portfolio Project 3
 
+![Mockup](doc_images/mockup3.png)
+
 Welcome to Meal Planner, a personalized Python application designed to support and enhance your fitness journey. This innovative application is a dedicated tool to help individuals track, analyze, and plan their daily dietary requirements.
 
 Meal Planner offers a straightforward way to calculate your daily caloric intake. By providing key details about your meals - such as type, portion size, and ingredients - the application can quickly determine your total caloric consumption for the day. The robust algorithm in place has been developed to take into account a wide range of foods, making this feature beneficial for users with diverse dietary preferences.
@@ -31,11 +33,17 @@ If a user enter any data the app will check if this data is valid and if its not
 Since its a terminal app, I used colorama to add a bit of colour where I felt was needed within the terminal to make certain parts stand out to the user. For example adding not valid data a prompt appear with color red.
 * Fetching information from Google sheet:
 The list of foods and it's caloric data is maintained inside a Google spreadsheet.
+* pyfiglet:
+pyfiglet takes ASCII text and renders it in ASCII art fonts
 
 ## Features Left to Implement
 * Create a user profile and store it in a database
 * Use database for food and caloric information
 
 # Technologies:
-* Python
-* 
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)): The program was written entirely in Python.
+* [Google Sheets](https://www.google.com/sheets/about/): Google sheets is used to fetch information about food and calories.
+* [Google Cloud](https://console.cloud.google.com/): Google cloud was used to enable the APIs needed for this project.
+* [Github](https://github.com/): Github was used to store the project's code after being pushed from Git.
+* [Gitpod](https://gitpod.io/): Gitpod terminal was used to commit my code using Git and push it to Github.
+* [Techsini](http://techsini.com/multi-mockup/index.php): Techsini was used to generate mockups for the project.
