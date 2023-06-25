@@ -291,7 +291,8 @@ def calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr):
         print(Fore.WHITE + f"Good job you are on the right"
               "track having {deficency} deficency")
     else:
-        print(Fore.RED + f"You have a surplus of {deficency} calories today")
+        print(Fore.RED + f"You have a surplus of"
+              " {deficency} calories today")
 
 
 def main():
