@@ -127,7 +127,8 @@ def calculate_protien():
             cals_intake = 0
             return (cals_intake)
         else:
-            protien_gm = input(Fore.WHITE + "What was your protien intake in gm\n")
+            protien_gm = input(Fore.WHITE + "What was your protien"
+                               " intake in gm\n")
             print(Fore.WHITE + "Calculating protien calories...\n")
             validate_data(protien_eat, "Protien")
             protien = SHEET.worksheet("Protien").get_all_values()
@@ -150,7 +151,7 @@ def validate_data(data, type):
             return True
             break
     if not found:
-        print(Fore.RED + f"You entered an element not found in the {type} list."
+        print(Fore.RED + f"You entered element not found in the {type} list."
               "Please try again\n")
         return False
 
@@ -172,7 +173,7 @@ def calculate_carbs():
             cals_intake = 0
             return cals_intake
         else:
-            carbs_gm = input(Fore.WHITE + "What was your carbs intake in gms:\n")
+            carbs_gm = input(Fore.WHITE + "What was your carb intake in gms\n")
             print(Fore.WHITE + "Calculating carbs calories...\n")
             validate_data(carbs_eat, "Carbs")
             carbs = SHEET.worksheet("Carbs").get_all_values()
