@@ -268,7 +268,7 @@ def menu_function():
         choice = input(Fore.WHITE + "Enter your choice (1 or 2 or 3): ")
 
         if choice == "1":
-            print(Fore.WHITE + "Automatic Meal Planner is a program that will help you"
+            print(Fore.WHITE + "Meal Planner is a program that will help you"
                   "to calculate your daily caloric intake.\n"
                   "Once you press 2 you will be asked to enter some "
                   "information such as age, weight and height.\n"
@@ -287,7 +287,7 @@ def menu_function():
             print(Fore.WHITE + "Thank you for using my application :)")
             sys.exit()
         else:
-            raise ValueError    
+            raise ValueError
     except Exception:
         print(Fore.RED + "Invalid choice. Please enter either 1 or 2 or 3")
         menu_function()
