@@ -24,9 +24,9 @@ The magic of Meal Planner doesn't stop there. It goes a step further and determi
 
 # Features:
 * Main menu:
-The application has a main menu
+The application has a main menu, The main menu consists of 3 options. Option1 to read the instructions, Option2 to start the app, and Option3 to exit the app.
 * Instruction:
-Once you run the application you have the option to start the meal planner or read the instructions first
+Once you run the application you have the option to read the instruction first on how this app works.
 * Input validations and error detection:
 If a user enter any data the app will check if this data is valid and if its not valid it will prompt the user to enter a valid data. Data validation happens on the weight, age, height, Food list and quantity.
 * Colorama:
