@@ -103,6 +103,9 @@ def validate_age(age):
 
 
 def calculate_bmr(weight, height, age):
+    """
+    Calculating BMR
+    """
     bmi = round(float(weight) / (float(height) * float(height)), 2)
     bmr = (10 * float(weight)) + (6.25 * float(height) * 100)
     - (5 * int(age)) + 5
