@@ -5,6 +5,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from colorama import Fore, Back, Style
 import pyfiglet
+import sys
 
 
 SCOPE = [
@@ -259,28 +260,37 @@ def menu_function():
     Function will print a menu for the user to either start the program
     Or read the instructions first
     """
-    while True:
-        print("Please select an option:")
-        print("1. Instructions")
-        print("2. Run Code")
-        choice = int(input("Enter your choice (1 or 2): "))
+    try:
+        print(Fore.WHITE + "Please select an option:")
+        print(Fore.WHITE + "1. Instructions")
+        print(Fore.WHITE + "2. Run Code")
+        print(Fore.WHITE + "3. Exit Code")
+        choice = input(Fore.WHITE + "Enter your choice (1 or 2 or 3): ")
 
-        if choice == 1:
-            print("Automatic Meal Planner is a program that will help you"
+        if choice == "1":
+            print(Fore.WHITE + "Automatic Meal Planner is a program that will help you"
                   "to calculate your daily caloric intake.\n"
                   "Once you press 2 you will be asked to enter some "
                   "information such as age, weight and height.\n"
                   "Based on your entries it will calculate your BMR and start"
                   "calculating your caloric intake throughout the day.\n")
+            menu_function()
 
-        elif choice == 2:
+        elif choice == "2":
             bmr = get_data()
             breakfast_cal = calculate_breakfast()
             lunch_cal = calculate_lunch()
             dinner_cal = calculate_dinner()
             calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr)
+
+        elif choice == "3":
+            print(Fore.WHITE + "Thank you for using my application :)")
+            sys.exit()
         else:
-            print("Invalid choice. Please enter either 1 or 2.")
+            raise ValueError    
+    except Exception:
+        print(Fore.RED + "Invalid choice. Please enter either 1 or 2 or 3")
+        menu_function()
 
 
 def calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr):
@@ -292,9 +302,11 @@ def calc_deficit(breakfast_cal, lunch_cal, dinner_cal, bmr):
     if deficency < 0:
         print(Fore.WHITE + f"Good job you are on the right"
               " track having caloric deficency of: ", deficency)
+        menu_function()
     else:
         print(Fore.RED + f"You have a surplus of"
               " calories today of: ", deficency)
+        menu_function()
 
 
 def main():
